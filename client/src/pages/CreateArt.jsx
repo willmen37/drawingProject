@@ -41,7 +41,31 @@ const CreateArt = () => {
 
   }
 
-  const handleSubmit = () => {
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    if(form.prompt && form.photo) {
+      setLoading(true);
+
+      try{
+        const response = await fetch("http://localhost:5000/api/v1/posts", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(form)
+        })
+
+        await response.json();
+        navigate("/")
+      }catch(err){
+        alert(err)
+
+      }
+      setLoading(false)
+    }else{
+      alert("Type something to get an image")
+    }
 
   }
 
