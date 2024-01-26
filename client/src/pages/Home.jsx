@@ -49,19 +49,21 @@ const Home = () => {
 	return (
 		<section className="max-w-7xl mx-auto">
 			<div>
-				<h1 className="font-extrabold text-[#222328] text-[25px]">
-					The comunity showcase
+				<h1 className="font-extrabold text-[#EF4444] text-[50px] text-center">
+					The best art pieces Imagined by you, drew by AI
 				</h1>
-				<p className="mt-2 text-[#666e75] text-[12px] max-w[500]">
+				<p className=" font-bold mt-2 text-[#A5B4FC] text-[27px] max-w[500]">
 					{" "}
-					The best alternative to make use of the amaxing AI experience by
+					The best alternative to make use of the amazing AI experience by
 					leveraging the power of DALL-E{" "}
 				</p>
+				<br/>
+				<h1 className="font-extrabold text-[#EF4444] text-[50px]  mb-4 border-solid">
+					Gallery:
+				</h1>
 			</div>
 
-			<div className="mt-16">
-				<FormInput />
-			</div>
+			
       
 			<div className="mt-10">
 				{loading ? (
@@ -89,6 +91,9 @@ const Home = () => {
 			</div>
 		</section>
 	);
+	
 };
+
+
 
 export default Home;

@@ -86,38 +86,30 @@ const CreateArt = () => {
 	return (
 		<section className="max-w-7xl mx-auto">
 			<div>
-				<h1 className="font-extrabold text-[#222328] text-[25px]">
-					Create
+				<h1 className="font-extrabold text-[#EF4444] text-[40px]">
+					Welcome to  the drAwIng Art Shop!
 				</h1>
-				<p className="mt-2 text-[#666e75] text-[12px] max-w[500]">
-					{" "}
-					Put to the try your skills specifically indicating DALL-E the kind of Drawing you woul like to get done{" "}
+				<p className="mt-2 text-[#A5B4FC] text-[25px] max-w[500]">
+					Be creative and specific while typing your artisitic ideas into DALL-E
 				</p>
 			</div>
 
       <form className="mt-16 max-w-3xl" onSubmit={handleSubmit}>
-        <div className="flex flex-col gap-5">
-          <FormInput
-            labelName="Your name"
-            type="text"
-            name="name"
-            placeholder="Fulanito de tal"
-            value={form.name}
-            handleChange={handleChange}
-          />
+        <div className="flex flex-col gap-5 text-[#4F46E5]">
+        
 
           <FormInput
-            labelName="Prompt"
+            labelName={<p className="text-[#A5B4FC] text-[38px]">Dall-E Input</p>}
             type="text"
             name="prompt"
-            placeholder="'A realistic photograph of a young woman with blue eyes and blonde hair',"
+            placeholder="Press the Try me! button or type your next art hit!"
             value={form.prompt}
             handleChange={handleChange}
             isSurpriseMe
             handleSurpriseMe={handleSurpriseMe}
           />
 
-          <div className="relative bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 w-64 p-3 h-64 flex-justify-center items-center">
+          <div className="relative bg-gray-50 border border-gray-300 text-gray text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 w-70 p-3 h-70 flex-justify-center items-center">
             {form.photo? (
               <img
                 src={form.photo}
@@ -128,7 +120,7 @@ const CreateArt = () => {
               <img
                 src={preview}
                 alt="preview"
-                className="w-9/12 h-9/12 object-contain opacity-40"
+                className="w-9/12 h-9/12 object-contain opacity-50"
               />
             )}
 
@@ -139,22 +131,34 @@ const CreateArt = () => {
             ) }
           </div>
         </div>
+        <br/>
+
+        <FormInput
+        labelName={<p className="text-[#A5B4FC] text-[25px] mb-2">Sign your Artwork:</p>}
+        type="text"
+        name="name"
+        placeholder="Artist Name"
+        value={form.name}
+        handleChange={handleChange}
+        />
+
         <div className="mt-5 flex gap-5">
               <button
                 type="button"
                 onClick={generateImage}
-                className="text-white bg-blue-700 font-medium rounded-md text-sm w-full sm:w-auto px-5 py-2.5"
+                className=' mb-1 bg-[#EF4444] py-1 px-2 rounded text-white border-solid border-2 text-[22px]'
               >
               {generatingImg? "Creating art..." : "Create"}
               </button>    
         </div>
-        <div className="mt-10">
-              <p className="mt-2 text-[#666e75] text-[16px]">Share your art with the drAwIng comunity</p>
+        <div className="mt-1">
+              <p className="mt-1 text-[#A5B4FC] text-[30px]">Satisfy with the result??</p>
+             
               <button
                 type="submit"
-                className="mt-2 text-white bg-blue-700 font-medium rounded-md text-sm w-full sm:w-auto px-5 py-2.5"
+                className= 'mb-1 bg-[#EF4444] py-1 px-2 rounded text-white border-solid border-2 text-[22px]'
               >
-               {loading? "uplaoding": "Upload Art Piece"}
+               {loading? "Uploading...": "Upload Art Piece into our Gallery"}
               </button>    
         </div>
       </form>
