@@ -4,6 +4,7 @@ import { preview } from "../assets";
 import { getRandomPrompt } from "../utils";
 import { FormInput, Loading } from "../components";
 
+
 const CreateArt = () => {
 	const navigate = useNavigate();
 	const [form, setForm] = useState({
@@ -18,6 +19,7 @@ const CreateArt = () => {
   const generateImage = async () => {
     if(form.prompt){
       try{
+        console.log("saving img on cloud")
         setGeneratingImg(true);
         const response = await fetch("http://localhost:5000/api/v1/openaiRoute",{
           method: "POST",
@@ -46,7 +48,7 @@ const CreateArt = () => {
 
     if(form.prompt && form.photo) {
       setLoading(true);
-
+      console.log(form)
       try{
         const response = await fetch("http://localhost:5000/api/v1/posts", {
           method: "POST",
@@ -141,25 +143,25 @@ const CreateArt = () => {
         value={form.name}
         handleChange={handleChange}
         />
-
-        <div className="mt-5 flex gap-5">
-              <button
-                type="button"
-                onClick={generateImage}
-                className=' mb-1 bg-[#EF4444] py-1 px-2 rounded text-white border-solid border-2 text-[22px]'
-              >
-              {generatingImg? "Creating art..." : "Create"}
-              </button>    
-        </div>
-        <div className="mt-1">
-              <p className="mt-1 text-[#A5B4FC] text-[30px]">Satisfy with the result??</p>
-             
-              <button
-                type="submit"
-                className= 'mb-1 bg-[#EF4444] py-1 px-2 rounded text-white border-solid border-2 text-[22px]'
-              >
-               {loading? "Uploading...": "Upload Art Piece into our Gallery"}
-              </button>    
+        <div className="flex justify-between ">      
+          <div className="mt-5 flex gap-5">
+                <button
+                  type="button"
+                  onClick={generateImage}
+                  className=' mb-1 bg-[#EF4444] py-1 px-2 rounded text-white border-solid border-2 text-[22px]'
+                >
+                {generatingImg? "Creating art..." : "Create"}
+                </button>    
+          </div>
+          
+          <div className="mt-5">
+                <button
+                  type="submit"
+                  className= 'mb-1 bg-[#EF4444] py-1 px-2 rounded text-white border-solid border-2 text-[22px]'
+                >
+                {loading? "Uploading...": "Upload Art Piece into our Gallery"}
+                </button>    
+          </div>
         </div>
       </form>
 		</section>
