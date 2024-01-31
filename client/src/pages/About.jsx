@@ -15,7 +15,7 @@ const About = () => {
                     William Mendez
                 </h1>
                 
-                <h2 class="font-extrabold text-[#EF4444] text-[25px]">Software Engineer</h2>
+                <h2 className="font-extrabold text-[#EF4444] text-[25px]">Software Engineer</h2>
 
                 <p className="mt-4 text-[#BFDBFE] text-[25px] max-w[500] text-center nb-">
                 My goal is helping all kinds of people to achieve peak connectivity and productivity by designing visually appealing web applications. These applications must be intuitive and efficient for the user.
@@ -23,8 +23,8 @@ const About = () => {
                 My hope is that your company is looking for a team member who possess the best possible balance between hard skills and soft skills like reliability and commitment in order to create lasting and successful partnerships.
                 Please click on any of the links below for more information about my capabilities.
                 </p>
-                <div class="flex justify-center mt-5">    
-                <a href="https://www.linkedin.com/in/william-mendez-m/" className="mx-3 text-[40px] w-20"><FontAwesomeIcon icon={faLinkedin} beatFade style={{color: "#EF4444",}}/></a>
+                <div className="flex justify-center mt-5">    
+                <a href="https://www.linkedin.com/in/william-mendez-m/" className="mx-3 text-[40px] w-20 "><FontAwesomeIcon icon={faLinkedin} beatFade style={{color: "#EF4444",}}/></a>
                 <a href="https://github.com/willmen37" className=" text-[40px]  mx-3 w-20"><FontAwesomeIcon icon={faGithub} beatFade style={{color: "#EF4444",}}/></a>
                 <a href="https://willmen37.github.io/WillMendez.github.io/#" className="mx-3 text-[40px]"><FontAwesomeIcon icon={faCodepen} beatFade style={{color: "#EF4444",}}/></a>
               </div>
