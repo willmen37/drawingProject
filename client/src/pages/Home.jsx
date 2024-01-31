@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { FormInput, Card, Loading } from "../components";
+import {  Card, Loading } from "../components";
 
 const RenderCards = ({ data, title }) => {
 	if (data?.length > 0) {
@@ -31,7 +31,7 @@ const Home = () => {
 				  if(response.ok) {
 					const result = await response.json()
 
-					setPost(result.data)
+					setPost(result.data.reverse())
 				  }
 
 			}catch(error){
