@@ -4,6 +4,7 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faArrowRightToBracket } from '@fortawesome/free-solid-svg-icons'
+import baseURL from "../Api";
 
 
 let emptyForm = {
@@ -24,11 +25,11 @@ function Register({ setUser }) {
 	const handleSubmit = async (e) => {
 		e.preventDefault();
 		try {
-			const response = await axios.post("/auth/register", form);
+			const response = await axios.post(baseURL+"/auth/register", form);
 			const token = response.data;
-			console.log(response);
+			// console.log(response);
 
-			console.log(token);
+			// console.log(token);
 
 			if (!token) {
 				setForm(emptyForm);
@@ -37,7 +38,7 @@ function Register({ setUser }) {
 
 			localStorage.setItem("token", token);
 
-			const userResponse = await axios.get("/api/users", {
+			const userResponse = await axios.get(baseURL+"/api/users", {
 				headers: {
 					Authorization: token,
 				},
