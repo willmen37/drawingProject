@@ -152,7 +152,7 @@ const tryMe = () => {
 							onClick={generateImage}
 							className=" mb-1 bg-[#EF4444] py-1 px-2 rounded text-white border-solid border-2 text-[22px]"
 						>
-							{generatingImg ? "Creating art..." : "Create"}
+							{generatingImg ? "Creating..." : "Create"}
 						</button>
 					</div>
 
