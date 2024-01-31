@@ -5,7 +5,11 @@ export default {
     extend: {
       screens: {
         xs: '480px',
+        background1: "url(./src/assets/background1.jpg",
+        class: "w-full h-full bg-cover"
+
       },
+     
       fontFamily: {
         inter: ['Inter var', 'sans-serif'],
       },
