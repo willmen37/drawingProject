@@ -25,7 +25,7 @@ function Register({ setUser }) {
 	const handleSubmit = async (e) => {
 		e.preventDefault();
 		try {
-			const response = await axios.post(baseURL+"/auth/register", form);
+			const response = await axios.post("https://drawingproject.onrender.com/auth/register", form);
 			const token = response.data;
 			// console.log(response);
 
@@ -38,7 +38,7 @@ function Register({ setUser }) {
 
 			localStorage.setItem("token", token);
 
-			const userResponse = await axios.get(baseURL+"/api/users", {
+			const userResponse = await axios.get("https://drawingproject.onrender.com/api/users", {
 				headers: {
 					Authorization: token,
 				},
