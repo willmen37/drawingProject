@@ -12,6 +12,13 @@ The design of the application is simple but functional, the user is offered to t
 
 Users will ONLY have access to create their own prompt as well as  upload the picture into drAwIng gallery upon registration.
 
+GETTING STARTED:
+* app: https://drawingfront.onrender.com/
+* Trello: https://trello.com/b/bxv6OmzE/drawingapp
+* ERD: https://app.diagrams.net/#G1PXKs9tBy_hjgQUss0g5n2E21agXd9_Xw
+* Wireframe: https://app.diagrams.net/#G1yyEnGw0pe2ftJ12L2e2L9JImXR79Wev_
+
+
 TECHNOLOGIES USED:
 - OpenAI Dall-E library.
 - MERN stack.
