@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import {  Card, Loading } from "../components";
+import { Card, Loading } from "../components";
 
 const RenderCards = ({ data, title }) => {
 	if (data?.length > 0) {
@@ -16,34 +16,34 @@ const Home = () => {
 	const [allPost, setPost] = useState(null);
 	const [searchText, useSearchText] = useState("");
 
-	useEffect(()=>{
-		const fetchPosts = async () =>{
-			setLoading(true)
+	useEffect(() => {
+		const fetchPosts = async () => {
+			setLoading(true);
 
-			try{
-				const response = await fetch("http://localhost:5000/api/v1/posts", {
-					method: "GET",
-					headers: {
-					  "Content-Type": "application/json",
-					},
-				  })
+			try {
+				const response = await fetch(
+					"https://drawingproject.onrender.com/api/v1/posts",
+					{
+						method: "GET",
+						headers: {
+							"Content-Type": "application/json",
+						},
+					}
+				);
 
-				  if(response.ok) {
-					const result = await response.json()
+				if (response.ok) {
+					const result = await response.json();
 
-					setPost(result.data.reverse())
-				  }
-
-			}catch(error){
-				alert(error)
-
-			}finally{
-				setLoading(false)
+					setPost(result.data.reverse());
+				}
+			} catch (error) {
+				alert(error);
+			} finally {
+				setLoading(false);
 			}
-		}
+		};
 
-		fetchPosts()
-
+		fetchPosts();
 	}, []);
 
 	return (
@@ -57,14 +57,12 @@ const Home = () => {
 					The best alternative to make use of the amazing AI experience by
 					leveraging the power of DALL-E{" "}
 				</p>
-				<br/>
+				<br />
 				<h1 className="font-extrabold text-[#EF4444] text-[50px]  mb-4 border-solid">
 					Gallery:
 				</h1>
 			</div>
 
-			
-      
 			<div className="mt-10">
 				{loading ? (
 					<div className="flex justify-center items center">
@@ -91,9 +89,6 @@ const Home = () => {
 			</div>
 		</section>
 	);
-	
 };
-
-
 
 export default Home;

@@ -32,9 +32,10 @@ const CreateArt = () => {
 				);
 
 				const data = await response.json();
-
+          console.log(data)
 				setForm({ ...form, photo: `data:image/jpeg;base64,${data.photo}` });
 			} catch (error) {
+        console.log(error)
 				alert(error);
 			} finally {
 				setGeneratingImg(false);

@@ -1,12 +1,11 @@
-
 import React, { useState } from "react";
 import { Navigate, useNavigate } from "react-router-dom";
 import { preview } from "../assets";
 import { getRandomPrompt } from "../utils";
 import { FormInput, Loading } from "../components";
 
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faArrowRight } from '@fortawesome/free-solid-svg-icons'
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
 
 const tryMe = () => {
 	const navigate = useNavigate();
@@ -19,77 +18,76 @@ const tryMe = () => {
 	const [generatingImg, setGeneratingImg] = useState(false);
 	const [loading, setLoading] = useState(false);
 
-  const generateImage = async () => {
-    if(form.prompt){
-      try{
-        setGeneratingImg(true);
-        const response = await fetch("http://localhost:5000/api/v1/openaiRoute",{
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({prompt: form.prompt})
-        })
+	const generateImage = async () => {
+		if (form.prompt) {
+			try {
+				setGeneratingImg(true);
+				const response = await fetch(
+					"https://drawingproject.onrender.com/api/v1/openaiRoute",
+					{
+						method: "POST",
+						headers: {
+							"Content-Type": "application/json",
+						},
+						body: JSON.stringify({ prompt: form.prompt }),
+					}
+				);
 
-        const data = await response.json();
+				const data = await response.json();
 
-        setForm({...form, photo: `data:image/jpeg;base64,${data.photo}`})
-      }catch(error){
-        alert(error)
-      }finally{
-        setGeneratingImg(false)
-      }
-    }else{
-      alert("Please type what you want to draw")
-    }
+				setForm({ ...form, photo: `data:image/jpeg;base64,${data.photo}` });
+			} catch (error) {
+				alert(error);
+			} finally {
+				setGeneratingImg(false);
+			}
+		} else {
+			alert("Please type what you want to draw");
+		}
+	};
 
-  }
+	const handleSubmit = async (e) => {
+		e.preventDefault();
+		console.log("error");
+		if (form.prompt && form.photo) {
+			setLoading(true);
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
+			try {
+				const response = await fetch(
+					"https://drawingproject.onrender.com/api/v1/posts",
+					{
+						method: "POST",
+						headers: {
+							"Content-Type": "application/json",
+						},
+						body: JSON.stringify(form),
+					}
+				);
+				console.log(reponse);
+				await response.json();
+				navigate("/");
+			} catch (err) {
+				console.log(err);
+				alert(err);
+			}
+			setLoading(false);
+		} else {
+			alert("Type something to get an image");
+		}
+	};
 
-    if(form.prompt && form.photo) {
-      setLoading(true);
+	const handleChange = (e) => {
+		setForm({ ...form, [e.target.name]: e.target.value });
+	};
 
-      try{
-        const response = await fetch("http://localhost:5000/api/v1/posts", {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify(form)
-        })
+	const handleSurpriseMe = () => {
+		const randomPrompt = getRandomPrompt(form.prompt);
+		setForm({ ...form, prompt: randomPrompt });
+	};
 
-        await response.json();
-        navigate("/")
-      }catch(err){
-        alert(err)
-
-      }
-      setLoading(false)
-    }else{
-      alert("Type something to get an image")
-    }
-
-  }
-
-  const handleChange = (e) => {
-    setForm({...form, [e.target.name]: e.target.value})
-
-
-  }
-
-  const handleSurpriseMe = () =>{
-    const randomPrompt = getRandomPrompt(form.prompt)
-    setForm({...form, prompt: randomPrompt})
-
-  }
-
-  const goToRegister = () => {
-    navigate("/register")
-  }
-
-
+	const goToRegister = () => {
+		navigate("/register");
+	};
 
 	return (
 		<section className="max-w-4xl mx-auto p-11 rounded-md p-9">
@@ -100,7 +98,7 @@ const tryMe = () => {
 				<p className="mt-2 text-[#A5B4FC] text-[25px] max-w[500]">
 					Be creative and specific while typing your artisitic ideas into DALL-E
 				</p>
-				<br/>
+				<br />
 			</div>
 
 			<form className="mt-16 max-w-3xl" onSubmit={handleSubmit}>
@@ -110,7 +108,6 @@ const tryMe = () => {
 							<p className="text-[#A5B4FC] text-[38px]">
 								Try out our AIcanvas....
 							</p>
-							
 						}
 						type="text"
 						placeholder="Press the Try me button for a random AI generated image"
@@ -119,7 +116,6 @@ const tryMe = () => {
 						isSurpriseMe
 						handleSurpriseMe={handleSurpriseMe}
 					/>
-				
 
 					<div className="relative bg-gray-50 border border-gray-300 text-gray text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 w-70 p-3 h-70 flex-justify-center items-center">
 						{form.photo ? (
@@ -143,7 +139,6 @@ const tryMe = () => {
 						)}
 					</div>
 				</div>
-				
 
 				<div className="flex justify-between ">
 					<div className="mt-5 flex gap-5">
@@ -156,8 +151,16 @@ const tryMe = () => {
 						</button>
 					</div>
 
-                    <p className="mt-5 flex gap-5 text-[#BFDBFE] text-[30px]">Looking for  the best functionality??? <FontAwesomeIcon icon={faArrowRight} beatFade style={{color: "#EF4444",}} className="mt-2" /> </p>
-                    
+					<p className="mt-5 flex gap-5 text-[#BFDBFE] text-[30px]">
+						Looking for the best functionality???{" "}
+						<FontAwesomeIcon
+							icon={faArrowRight}
+							beatFade
+							style={{ color: "#EF4444" }}
+							className="mt-2"
+						/>{" "}
+					</p>
+
 					<div className="mt-5 flex gap-5">
 						<button
 							type="button"
