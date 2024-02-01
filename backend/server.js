@@ -10,7 +10,7 @@ import authRoutes from "./routes/authRoutes.js"
 import userRoutes from "./routes/userRoutes.js"
 import authorize from "./middleware/authMiddleware.js"
 
-const PORT = 5000
+const PORT = 8080
 
 
 
