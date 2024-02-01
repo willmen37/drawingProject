@@ -26,7 +26,7 @@ function Login({ setUser }) {
         e.preventDefault()
         try {
 
-            const response = await axios.post(baseURL+'/auth/login', form)
+            const response = await axios.post('https://drawingfront.onrender.com/auth/login', form)
             const token = response.data
 
             console.log(token)
@@ -38,7 +38,7 @@ function Login({ setUser }) {
 
             localStorage.setItem("token", token)
 
-            const userResponse = await axios.get(baseURL+'/api/users', { 
+            const userResponse = await axios.get('https://drawingfront.onrender.com/api/users', { 
                 headers: {
                     Authorization: token
                 }

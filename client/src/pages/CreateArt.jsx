@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { preview } from "../assets";
 import { getRandomPrompt } from "../utils";
 import { FormInput, Loading } from "../components";
-import baseURL from "../Api";
+
 
 const CreateArt = () => {
 	const navigate = useNavigate();
@@ -21,7 +21,7 @@ const CreateArt = () => {
       try{
         console.log("saving img on cloud")
         setGeneratingImg(true);
-        const response = await fetch(baseURL+"/api/v1/openaiRoute",{
+        const response = await fetch("https://drawingfront.onrender.com/api/v1/openaiRoute",{
           method: "POST",
           headers: {
             "Content-Type": "application/json",
@@ -50,7 +50,7 @@ const CreateArt = () => {
       setLoading(true);
       console.log(form)
       try{
-        const response = await fetch(baseURL+"/api/v1/posts", {
+        const response = await fetch("https://drawingfront.onrender.com/api/v1/posts", {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
