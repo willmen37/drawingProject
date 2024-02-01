@@ -1,3 +1,5 @@
+dRAWIng APP
+
 Welcome to drAwIng app, this application allows users to merge their creativity and the power of Dall-E library which provides a database that allows users to via Input create amazing and unique AI images. 
 
 ![Alt text](src/assets/logo2.png)
