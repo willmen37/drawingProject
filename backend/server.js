@@ -24,7 +24,7 @@ app.use("/api/v1/posts", postRoutes)
 app.use("/api/v1/openaiRoute", openaiRoute)
 
 //NEW CODE
-app.use("/auth", authRoutes)
+app.use("https://drawingproject.onrender.com/auth", authRoutes)
 app.use("/api/users", authorize, userRoutes)
 
 
