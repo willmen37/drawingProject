@@ -33,7 +33,7 @@ const App = () => {
 	return (
 		<BrowserRouter>
 			<main className="w-full flex bg-[url('./assets/background1.jpg')] bg-center bg-cover sm:p-8 px4 py-8 w-full bg-[black] min-h-[calc(100vh-73px)]">
-				<div className="sticky h-full flex bg-black text-gray-900 ">
+				<div className="sticky top-0  h-full flex bg-black text-gray-900 ">
 					{!sidebarOpen && (
 						<span
 							className=" absolute text-white text-4xl top-5 left-4 cursor-pointer"
@@ -47,7 +47,7 @@ const App = () => {
 					)}
 				</div>
 
-					<aside className="flex h-screen w-25 flex-col justify-around   border-r border-gray-200 p-2 fixed left-[-300px]">
+					<aside className="flex h-screen w-25 flex-col justify-around   border-r border-gray-200 p-2 fixed left-[-300px] bg-white bg-opacity-10">
 						<button
 							onClick={closeSidebar}
 							className="absolute top-2 right-2  text-white  p-2 rounded-md"
